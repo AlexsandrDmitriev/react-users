@@ -1,0 +1,32 @@
+.post-list {
+  text-align: left;
+  padding: 0;
+  ul {
+    padding-left: 18px;
+  }
+  li {
+    margin-bottom: 12px;
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  &-title {
+    margin: 0;
+    margin-right: 16px;
+    text-align: left;
+  }
+  &-close {
+    padding: 6px 16px;
+    background: #888;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover {
+      background: #555;
+    }
+  }
+}
+

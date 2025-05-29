@@ -1,0 +1,18 @@
+.sortableUserCard {
+    display: flex;
+    align-items: flex-start;
+}
+
+.dragHandle {
+    cursor: grab;
+    width: 24px;
+    height: 24px;
+    background: #eee;
+    border-radius: 4px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    padding: 2px 7px;
+}

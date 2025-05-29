@@ -1,0 +1,25 @@
+.user-map {
+  width: 100%;
+  height: 180px;
+  margin: 12px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e3eefa;
+  position: relative;
+}
+
+.user-map-leaflet,
+.user-map .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 120px;
+  background: #e3eefa !important;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .user-map {
+    height: 120px;
+    margin: 8px 0;
+  }
+}

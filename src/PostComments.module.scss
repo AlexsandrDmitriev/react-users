@@ -1,0 +1,33 @@
+.comments {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+      &:last-child {
+        border-bottom: none;
+      }
+      b {
+        color: #0057ff;
+      }
+      span {
+        color: #888;
+        font-size: 0.95em;
+      }
+      div {
+        margin-top: 0.2em;
+      }
+    }
+  }
+}
