@@ -1,0 +1,35 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main # Запускать workflow при push в ветку main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Запускать на виртуальной машине с Ubuntu
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Клонировать код из репозитория
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Укажите версию Node.js, используемую в проекте
+
+    - name: Install dependencies
+      run: npm install # Установка зависимостей
+
+    - name: Build project
+      run: npm run build # Сборка проекта (создает статические файлы в папке build или dist)
+
+    - name: Deploy via SSH
+      uses: easingthemes/ssh-deploy@main # Используем готовый action для деплоя по SSH
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # Приватный SSH ключ (хранится в Secrets репозитория)
+        ARGS: "-avz --delete"
+        SOURCE: "build/" # Папка со статикой после сборки (или dist/)
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }} # IP или домен сервера
+        REMOTE_USER: ${{ secrets.REMOTE_USER }} # Пользователь SSH
+        TARGET: "/var/www/yourdomain.com/html/" # Путь на сервере, куда копировать файлы
